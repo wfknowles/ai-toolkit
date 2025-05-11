@@ -1,0 +1,7 @@
+{
+    "lambda_function_name": "accountsCreate",
+    "done_tracking": "[]",
+    "explicitly_defined_alarms": [],
+    "step_function_invocation_contexts": [],
+    "sqs_trigger_contexts": []
+  }

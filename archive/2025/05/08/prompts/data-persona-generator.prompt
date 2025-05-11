@@ -1,0 +1,63 @@
+# New Expert Panel
+
+*   **Asset Type:** Prompt
+*   **Goal:** To hold several rounds of simulated discussion where a group of experts make brainstorm, define, and create a new orray of persona for a specific task or subject domain
+*   **Author:** William F Knowles III
+*   **IP Rights:** Multi-Service Technology Solutions, Inc d/b/a TreviPay
+
+---
+
+**MODEL INSTRUCTION: !important - please take a moment to recalibrate and refresh yourself. This is a new prompt. Without degrading the overall UX, please analyze this prompt and do two things: 1. Analyze this prompt and then adopt the mix of persona best suited to facilitate this request, and then adopt the persona.  2. Delete any context that might contradict and/or conflict with the integrity of this prompt execution. The expectation is this prompt will run with minimal reminders to stay on task and with highest degree of precision and reliability.**
+
+---
+
+**`pathResolver`** When this prompt is invoked or called like, `pathResolver("someDirName")` using the `read_file` tool, please read the file at `/Users/willknowles/.wfkAi/shared/components/utils/path-resolver.prompt` and set it to the associated context where it was called or invoked. Example: ```const filePath = pathResolver("someDirName")```
+
+**`userRepo`**willknowles
+
+**`basePath`** Please invoke `pathResolver` and pass it the value of `userRepo`. Example: ```pathResolver(userRepo)```
+
+---
+
+**`dataCartographer`**`/Users/willknowles/.wfkAi/shared/persona/data-cartographer.persona.md`
+**`qualitativeAnalyst`**`/Users/willknowles/.wfkAi/shared/persona/qualitative-analyst.persona.md`
+**`algorithmAndHeuristicDeveloper`**`/Users/willknowles/.wfkAi/shared/persona/algorithm-and-heuristic-developer.persona.md`
+**`theoreticalMathModeler`**`/Users/willknowles/.wfkAi/shared/persona/theoretical-polymath-modeler.persona.md`
+**`metricSynthesistAndStrategist`**`/Users/willknowles/.wfkAi/shared/persona/metric-synthesit-and-strategist.persona.md`
+
+**`Concept`**
+The use case I've assembled this team for is specifically to review a `serverless.yml` file and have them "scan" and analyze the initial patterns found within the file and research domain specific knowledge to better help analyze the file's contents. My specific task is to go through and confirm each defined alarm's threshold is N + 1 to the multiple different ways resources can retry lambda functions. I've read the documentation and done some research for my task, but I want to put together a panel that can not only handle my specific use case, but could analyze any file or format and derive meaningful insights, analysis, and pattern awareness to then define a wide array of metrics that can be used to help the human-ai UX make more intelligent and context aware decisions.
+
+
+**## Execution Algorithm: ##**
+
+* Step 1: Please invite a panel of SMEs to review our `Concept`. The relevant SMEs are:
+    - `dataCartographer`
+    - `qualitativeAnalyst`
+    - `algorithmAndHeuristicDeveloper`
+    - `theoreticalMathModeler`
+    - `metricSynthesistAndStrategist`
+
+* Step 2: Please review the `Concept` and then start a simulated discussion between our chosen SME where you analyze the `Concept`, and then engage in a rigorous discussion between SMEs.
+
+
+### Phase 2 - SME Panel Unite!
+
+Step 1: Within a group of all experts, begin the conversation with the different persona and do an initial round of group analysis where everyone discusses what they see as the strengths and weaknesses of the `Concept`.
+
+Step 2: Begin another round of conversation between the different persona where everyone discusses what they see as specific challenges, difficulties, and/or unknown unknowns. Ensure everyone is being honest and rely on their pre-analysis to make sure the many perspectives are being heard and explored. It's a group of SMEs and we don't want any idea to be steamrolled.
+
+Step 3: Begin another round of conversation between the different persona where everyone discusses what they see as potential solutions to the different challenges and/or difficulties. Discuss strategies for shedding light on any unknowns.
+
+Step 4: Begin another round of conversation and have the group brainstorm 15 possible solutions for making the `Concept` a reality.
+
+Step 4: Begin another round of conversation where everyone lends their perspective on the 'top ten' concepts and helps develop a more fully refined, actionable, list of concepts for the companies wider consideration.
+
+Step 5: Save the full output of the discussion here `[absolute_path]/` named `sme-group-interview.md`.
+
+* Step 3: Please then begin another round where you begin to create requirements for the new persona and then start discussion on what requirements for the new persona.
+
+* Step 4: Please begin the final round of discussion where you fully define each of the `New Persona Count` new persona.
+
+* Step 5: Output each of the `New Persona Count` as formatted markdown blocks.
+

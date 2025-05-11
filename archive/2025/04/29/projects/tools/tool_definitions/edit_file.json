@@ -1,0 +1,32 @@
+{
+  "name": "edit_file",
+  "description": "Proposes an edit to a specified file by providing the *entire* new content. IMPORTANT: User confirmation is REQUIRED via the UI before the edit is applied. Call this tool to initiate the proposal and the confirmation workflow. Access is restricted to predefined allowed directories (e.g., data/editable/).",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "file_path": {
+        "type": "string",
+        "description": "The relative or absolute path to the file to edit."
+      },
+      "content": {
+        "type": "string",
+        "description": "The full proposed content to write to the file."
+      }
+    },
+    "required": ["file_path", "content"]
+  },
+  "returns": {
+    "type": "object",
+    "description": "Describes the outcome AFTER the user confirmation step and potential execution attempt.",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "True if the file was written successfully after user approval, False otherwise (including if rejected or access denied)."
+      },
+      "error": {
+        "type": ["string", "null"],
+        "description": "An error message if unsuccessful (e.g., 'Access Denied', 'User Rejected Edit', 'Failed to write file'), otherwise null."
+      }
+    }
+  }
+} 

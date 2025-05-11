@@ -1,0 +1,26 @@
+{
+    "lambda_function_name": "sendEmailConsumer",
+    "done_tracking": "[]",
+    "explicitly_defined_alarms": [
+      {
+        "configured_alarm_name": "functionErrorsEmailSend",
+        "is_enabled_status": true
+      },
+      {
+        "configured_alarm_name": "functionErrors",
+        "is_enabled_status": false
+      }
+    ],
+    "step_function_invocation_contexts": [],
+    "sqs_trigger_contexts": [
+      {
+        "event_source_arn_or_queue_name": "Fn::GetAtt: [SendEmailQueue, Arn]",
+        "batch_size": null,
+        "maximum_concurrency": 250,
+        "function_response_type": "ReportBatchItemFailures",
+        "source_queue_resource_name": "SendEmailQueue",
+        "redrive_policy_max_receive_count_m": 5,
+        "redrive_policy_dlq_target_arn": "!GetAtt SendEmailDeadLetterQueue.Arn"
+      }
+    ]
+  }

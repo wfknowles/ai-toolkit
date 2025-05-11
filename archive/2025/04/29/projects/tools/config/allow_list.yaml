@@ -1,0 +1,10 @@
+# Example Allow List Configuration (YAML Format)
+# Paths should be absolute or relative to a known root defined in the Execution Environment
+
+read_allow:
+  - /Users/wknowles/Develop/ai/wfkAi/data  # Example absolute path
+  - /Users/wknowles/Develop/ai/wfkAi/docs  # Example absolute path
+  # - project_data/ # Example relative path (if Exec Env knows project root)
+
+edit_allow:
+  - /Users/wknowles/Develop/ai/wfkAi/data/editable # Example absolute path (more restrictive) 

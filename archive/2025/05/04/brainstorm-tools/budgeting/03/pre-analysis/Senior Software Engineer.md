@@ -1,0 +1,13 @@
+# Senior Software Engineer - Pre-Analysis Concepts
+
+*Initial concepts focusing on implementation details for financial calculations, analyses, and agent tools using NestJS/React/PostgreSQL.*
+
+1.  **Financial Calculation Library:** Select and integrate a robust JavaScript/TypeScript library for handling financial calculations with high precision (e.g., `decimal.js`, `big.js`) to avoid floating-point errors in currency math.
+2.  **Calculation Service Implementation (NestJS):** Implement the dedicated calculation service using NestJS. Define DTOs for inputs/outputs of formulas (DTI, Savings Rate, Variance, etc.). Write thorough unit tests (Jest) with known financial edge cases.
+3.  **Plaid Data Service:** Enhance the existing Plaid service (NestJS) to handle fetching necessary transaction history, potentially filtering by date range or category for analytical functions. Implement secure storage/refresh of Plaid access tokens.
+4.  **Agent Tool Function Implementation:** Implement specific functions within NestJS services that correspond to the agent tool prompts (e.g., `calculateSavingsRate(userId, period)`, `getSpendingAnomaly(userId, category, period, sensitivity)`). These functions perform the core logic/calculations.
+5.  **API Endpoints for Analysis:** Create secure REST API endpoints (NestJS controllers) to expose calculation results and analysis data needed by the React frontend or agents (e.g., `GET /users/:id/financial-summary`, `POST /users/:id/goals/:goalId/calculate-required-savings`).
+6.  **Database Indexes for Performance:** Ensure PostgreSQL tables storing transactions and potentially aggregated data have appropriate indexes (e.g., on date, category, user ID) to speed up queries needed for analysis.
+7.  **React Components for Visualization:** Develop reusable React components using a charting library (e.g., Chart.js, Recharts) to display quantitative outputs like cash flow charts, budget variance bars, DTI gauges.
+8.  **Asynchronous Job Processing (Bull/Redis):** Implement background job queues (e.g., using `Bull` in NestJS) for long-running analysis tasks like historical trend calculation or complex statistical analysis (anomaly detection) to avoid blocking API requests.
+9.  **Confidence Score Implementation:** If using ML categorization, implement the mechanism to generate and store the confidence score alongside the category. If rule-based, assign scores based on rule certainty/specificity. 

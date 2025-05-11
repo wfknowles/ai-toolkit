@@ -1,0 +1,63 @@
+metadata:
+  <<: !include ../components/component_metadata.md
+  Version: '1.1.0-template' # Based on refactoring principles applied
+  Original_Location: '/path/to/prompt-engineering-edu-2-2.md' # Placeholder
+  Goal: 'Generate detailed research outlines from SMEs based on prior work'
+
+header_instructions: !include ../components/component_agent_instructions.md
+
+configuration:
+  base: !include ../components/component_configuration_base.md
+  paths: !include ../components/component_configuration_paths_r2_2.md
+
+input_context:
+  summary: !include ../components/component_input_context_summary.md
+  items:
+     # List inputs needed for R2.2 based on config component
+     - name: Curriculum
+       path: '{{curriculum_file}}'
+     - name: R2 Pre-Analysis
+       path: '{{round2_preanalysis_dir}}'
+     - name: R2 Pre-Interviews
+       path: '{{round2_preinterviews_dir}}'
+     # Potentially add R1 interview/pre-analysis if needed by concept
+     - name: R1 Group Interview Dir
+       path: '{{round1_interview_dir}}' # Path from R2.2 config
+
+concept: # Concept Description for R2.2
+  header: !include ../components/component_concept_block.md
+  description: |
+    Review the agreed upon Curriculum ({{input_context.items[0].path}}), the R2 Pre-Analysis 
+    ({{input_context.items[1].path}}), and R2 Pre-Interviews ({{input_context.items[2].path}}). Also consider the R1 brainstorming outputs ({{input_context.items[3].path}}).
+    The goal is to work with SMEs to create detailed outlines for pre-researching 
+    material needed for Round 3's creation of final deliverables (requirements/roadmaps). 
+    You will be guiding research assistants through this pre-research phase via these outlines.
+
+security_footer: !include ../components/component_security_footer.md
+
+phases:
+  - phase_name: 'Phase 1 - Meta Analysis'
+    steps: !include ../components/component_phase_meta_analysis.md
+    variables:
+       Meta_Analysis_Goal_Description: 'Generate detailed research outlines from SMEs based on prior work'
+       SME_Count: 9 # From original R2.2 prompt
+
+  - phase_name: 'Phase 2 - Setup and Outline Generation'
+    steps: !include ../components/component_phase_setup_sme_outlines_r2_2.md
+    variables:
+       SME_Count_R2_2: 9 
+       # Paths resolved from config
+
+  # Add other phases from original R2.2 if they were intended, e.g., Facilitator Planning? Asset Creation?
+  # The original R2.2 prompt seemed incomplete/confusing in later phases.
+  # Adding a simple confirmation phase here based on refactored structure.
+  - phase_name: 'Phase 3 - Final Confirmation' 
+    steps: |
+        *   **Step 1 (Facilitator):** **Context Check:** Before executing the steps in this phase, briefly state which major information blocks or files from the previous phase (Phase 2 - Outline Generation) are no longer strictly required for completing Phase 3 and explain why. If all previous context remains necessary, state that.
+            *(Output context check summary to chat)*
+
+        *   **Step 2 (Facilitator):** Confirm that all planned steps and outputs for this prompt have been successfully completed.
+            *(Output confirmation to chat: "Phase 3, Step 2: All planned steps completed. 9 SME research outlines generated in {{pre_outlines_dir}}.")*
+
+# NOTE: Final instruction component also not created in Phase 3.
+final_instruction: !include ../components/component_final_instruction.md 

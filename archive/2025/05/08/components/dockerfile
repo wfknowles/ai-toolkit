@@ -1,0 +1,34 @@
+# Dockerfile for the Prompt Backend Service (Python/FastAPI Example)
+
+# Use an official Python runtime as a parent image
+FROM python:3.11-slim
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install system dependencies that might be needed (e.g., for certain libraries)
+# RUN apt-get update && apt-get install -y --no-install-recommends some-package && rm -rf /var/lib/apt/lists/*
+
+# Copy the requirements file into the container at /app
+COPY ./requirements.txt /app/requirements.txt
+
+# Install any needed packages specified in requirements.txt
+# Using --no-cache-dir can reduce image size
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code into the container at /app
+# If prompt library files are bundled within the service image (less flexible), copy them here too.
+# Otherwise, they will be mounted via docker-compose for local dev.
+COPY ./app /app/app
+
+# Make port 8000 available to the world outside this container (FastAPI default)
+EXPOSE 8000
+
+# Define environment variables if needed (e.g., for configuration)
+# ENV ENVIRONMENT=production
+ENV PROMPT_LIB_PATH=/prompts # Example path where prompts might be mounted or located
+
+# Run uvicorn server when the container launches.
+# Use --host 0.0.0.0 to accept connections from outside the container.
+# The --reload flag will be added via docker-compose for local development.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

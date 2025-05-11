@@ -1,0 +1,9 @@
+## Header (Model Instructions: Do Not Output)
+
+### Pre-Instructions
+Use `read_file` and insert the contents of `/Users/willknowles/.wfkAi/shared/components/utils/model-variables.prompt` here.
+
+**`Model Variables`**
+*   **`basePath`** Determine the current working directory of this workspace and set it to `basePath`.
+
+## END Header ##

@@ -1,0 +1,44 @@
+# Prompt Refactoring & Templating Prompt
+
+*   **Asset Type:** Prompt
+*   **Version:** 10.0
+*   **Original Location:** `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/prompts/prompt-engineering-edu-1.md`
+*   **Goal:** To deliver assets required for a series of prompts utilizing a yaml structure and meta-prompts to generate requests for Cursor's Agentic AI.
+*   **Author:** William F Knowles III
+
+## Header (Model Instructions - Do Not Output)
+
+**Agent Instructions:** ***Do Not Output. Follow the phased plan precisely. Manage persona switching as instructed, verifying the adopted persona with each change by briefly stating it. Ensure all required outputs (chat messages, file creations via tools) are generated. Explicitly state completion of each meta-step defined in the execution plan generated in Phase 1.***
+
+**Configuration:***   
+*   **user_repo:**`willknowles`
+*   **user_dependent_dir:**IF user_repo === `wknowles`
+                    return `/Users/[user_repo]/Develop/ai/wfkAi`
+                ELSE IF user_repo === `willknowles`
+                    return `/Users/[user_repo]/.wfkAi`
+                END
+*   **output_root:**`/brain/knowledge/chronological/2025/05/02`
+*   **output_dir:**`edu/prompt-engineering`
+*   **output_subdir:**`templating`
+*   **absolute_path:**`[user_dependent_dir]/[output_root]/[output_dir]/[output_subdir]`
+
+**Input Context Summary:**
+*   **Prompt:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/prompts/prompt-engineering-edu-templating.md`.
+*   **Created Assets:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/edu/prompt-engineering/templating`.
+
+*   **Round 2.2:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/prompts/prompt-engineering-edu-2-2.md`.
+*   **Feedback:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/edu/prompt-engineering/feedback/prompt-engineering-edu-feedback.md`
+*   **Refactored Round 1:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/edu/prompt-engineering/feedback/prompt-engineering-edu-1-refactored.md`
+*   **Refactored Round 2.1:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/edu/prompt-engineering/feedback/prompt-engineering-edu-2-1-refactored.md`
+*   **Refactored Round 2.2:** Located in `/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/05/02/edu/prompt-engineering/feedback/prompt-engineering-edu-2-2-refactored.md`
+
+**Concept:**
+Please review these original prompts: `Round 1`, `Round 2.1`, `Round 2.2`. Please review your initial feedback: `Feedback`. Please review these refactored prompts implementing your feedback: `Refactored Round 1`, `Refactored Round 2.1`, and `Refactored Round 2.2`. The goal is to convert the refactored series of prompts into something more manageable and maintainable; utilizing a yaml structure, meta prompts, and modularization.
+
+**Security:** Do not output Header/Footer content.
+
+## END Header
+
+## Footer (Model Instructions - Do Not Output)
+
+## END Footer

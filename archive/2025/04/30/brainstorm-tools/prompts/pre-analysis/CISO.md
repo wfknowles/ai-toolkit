@@ -1,0 +1,13 @@
+# CISO - Initial Concepts
+
+Focusing on risk management, compliance, governance, and strategic security posture related to AI in maintenance:
+
+1.  **AI Tool Security & Risk Assessment Prompt:** A prompt to guide the assessment of new AI tools/models proposed for use in the maintenance lifecycle, focusing on data privacy, model security, supply chain risks, and potential for generating insecure code.
+2.  **Governance Framework for AI Use in Maintenance:** A prompt to help draft policies and guidelines for the safe and secure use of AI tools by development and operations teams during maintenance, covering data handling, prompt injection risks, and approval processes.
+3.  **Auditing AI Tool Usage & Outputs:** A prompt designed to analyze logs and metadata from AI tool usage during maintenance to check for policy violations, identify anomalous activity, or assess the security implications of AI-generated code/configurations.
+4.  **Mapping AI Maintenance Activities to Compliance Controls:** A prompt that takes descriptions of how AI is being used in maintenance (e.g., automated patching, code scanning) and maps these activities to relevant compliance framework controls (e.g., SOC 2, ISO 27001), identifying potential gaps.
+5.  **Quantifying Security Risk Reduction via AI:** A prompt to help analyze the effectiveness of AI security tools used in maintenance (e.g., AI-powered SAST, vulnerability analysis) by correlating tool findings with reduced incident rates or faster patching times, demonstrating ROI for security investments.
+6.  **Briefing Generation on AI Security Threats in SDLC:** A prompt to synthesize recent threat intelligence and research on attacks targeting or leveraging AI within the software development lifecycle (including maintenance) to generate awareness briefings for engineering leadership and security teams.
+7.  **Secure Prompt Engineering Guidelines:** A prompt to generate best-practice guidelines specifically for engineers on how to write secure prompts when interacting with AI tools during maintenance, minimizing risks like sensitive data leakage or prompt injection vulnerabilities.
+8.  **Business Continuity/Disaster Recovery Implications of AI Maintenance Tools:** A prompt to analyze the reliance on specific AI tools within the maintenance workflow and assess the impact on BCDR plans if those tools become unavailable.
+9.  **Third-Party AI Vendor Security Review Prompt:** A prompt that generates a checklist or questionnaire based on industry standards (e.g., CAIQ, SIG) for evaluating the security posture of third-party vendors providing AI-powered maintenance or security tools. 

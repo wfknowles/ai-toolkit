@@ -1,0 +1,134 @@
+# Developer Onboarding Guide: AI-Assisted Workflow - v1.0
+
+Welcome to Our Project's AI-Assisted Development Workflow! This guide will help you set up your local environment and effectively leverage our custom AI tools and prompt ecosystem to enhance your productivity, code quality, and security.
+
+**Goal:** To integrate powerful AI assistance seamlessly into your daily development tasks while adhering to our project's standards for quality, security, and ethics.
+
+**Key Components You'll Interact With:**
+*   **Prompt Library:** A central Git repo containing curated prompts and templates.
+*   **Prompt Backend Service:** A local Docker service that serves these prompts.
+*   **IDE Plugin ("Prompt Assistant"):** Your interface within Cursor/VS Code to access the prompts.
+*   **Standards Documents:** Guidelines you need to be aware of.
+
+## 1. Overview of the Ecosystem
+
+Our AI-assisted workflow is designed to help with tasks like:
+*   Generating boilerplate code (functions, classes, components).
+*   Refactoring existing code for clarity or performance.
+*   Explaining complex code snippets.
+*   Generating unit tests.
+*   Drafting documentation (e.g., docstrings).
+*   Providing secure coding advice based on context.
+*   And more!
+
+This is achieved through a system comprising:
+
+1.  **A `Centralized Prompt Library/Repository` (Component #2):** Stores high-quality, version-controlled prompt templates designed and tested according to our standards. ([Link to Repo](#) - *Insert Link Here*)
+2.  **A `Dockerized Prompt Backend Service` (Component #5):** You'll run this locally via Docker. It reads prompts from the library and constructs the final prompt text based on your requests and context.
+3.  **An `IDE Integration Plugin` ("Prompt Assistant" - Component #11):** This plugin (for Cursor/VS Code) acts as the bridge. It gathers context from your IDE, calls the local backend service to get the right prompt, and helps you use that prompt with an AI model (typically via Cursor's built-in chat or potentially future direct integration).
+4.  **`Prompt Engineering Standards` (Component #1):** Guidelines for how prompts are designed and used. ([Link to Standards](#) - *Insert Link Here*)
+5.  **`Secure Coding Standards & AI Code Checklist` (Component #8):** Security requirements for all code, including AI-generated code. ([Link to Standards](#) - *Insert Link Here*)
+6.  **Automated Checks (via GitHub Actions):** Linters and tests run automatically on prompts (Component #6) and codebase contributions (Component #7) to enforce standards.
+
+## 2. Local Environment Setup (Step-by-Step)
+
+To get started, you need to set up the local components:
+
+**Prerequisites:**
+*   [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+*   [Git](https://git-scm.com/) installed.
+*   [Node.js & npm](https://nodejs.org/) (or Python/pip, depending on test/linter setup) installed.
+*   Cursor IDE (or VS Code) installed.
+
+**Steps:**
+
+1.  **Clone Required Repositories:**
+    *   Clone the `Centralized Prompt Library/Repository` (ask team lead for URL).
+    *   Clone the repository containing the `Dockerized Prompt Backend Service` code (ask team lead for URL).
+    ```bash
+    # Example:
+    git clone <url_to_prompt_library_repo> prompt-library
+    git clone <url_to_backend_service_repo> prompt-backend-service
+    ```
+
+2.  **Configure the Prompt Library Path (if necessary):**
+    *   The backend service needs to know where to find the prompt library files. By default, the `docker-compose.yml` likely mounts a specific local directory (e.g., `prompt_library_local` adjacent to the backend service code) into the container at `/app/prompt_library_local`.
+    *   Ensure your cloned prompt library (`prompt-library` from step 1) is placed at that expected location relative to the backend service code, or update the `volumes` section in the `docker-compose.yml` file within the `prompt-backend-service` directory to point to the correct local path of your cloned `prompt-library`.
+
+3.  **Build and Run the Dockerized Backend Service:**
+    *   Navigate to the `prompt-backend-service` directory in your terminal.
+    *   Run `docker-compose up --build -d`.
+        *   `--build`: Builds the Docker image the first time (or if the Dockerfile changes).
+        *   `-d`: Runs the container in detached mode (in the background).
+    *   Verify the service is running: Check `docker ps` or view logs with `docker-compose logs -f prompt-service`. You should see the Uvicorn/FastAPI server starting up, likely watching for file changes due to `--reload`.
+
+4.  **Install the IDE Plugin ("Prompt Assistant"):**
+    *   If it's a published extension, search for "Our Project Prompt Assistant" in the Cursor/VS Code Extensions view and install it.
+    *   If it's developed internally, follow the specific instructions provided for installing a local `.vsix` file or linking a development version.
+
+5.  **Configure the IDE Plugin:**
+    *   Open your IDE settings (e.g., `settings.json`).
+    *   Ensure the Plugin's setting for the "Backend Service URL" points to the correct local endpoint (usually `http://127.0.0.1:8000` unless you changed the port mapping in `docker-compose.yml`).
+    *   Review other Plugin settings related to context collection and customize if desired.
+
+6.  **Verify Setup:**
+    *   Try invoking a simple action via the Plugin (e.g., using the Command Palette or context menu). You should see the Plugin UI appear, and potentially logs in the `docker-compose logs` indicating a request was received by the backend service.
+
+## 3. Usage Guidelines and Best Practices
+
+*   **Discover Prompts:** Use the Plugin's UI (sidebar, Command Palette) to explore available prompts categorized by task (e.g., "Generate Python Unit Tests," "Explain JavaScript Selection").
+*   **Provide Context:**
+    *   Often, simply selecting the relevant code block before invoking a prompt action is sufficient.
+    *   Pay attention if the Plugin asks you to confirm or provide additional context.
+    *   Remember Standard #2: Ensure any manually added context is scrubbed of sensitive info.
+*   **Use the Generated Prompt:** Copy the prompt generated by the Plugin and paste it into your AI chat interface (e.g., Cursor's chat). Review the prompt before sending it to the LLM – does it accurately reflect your intent and the context?
+*   **Critically Evaluate AI Output:**
+    *   **Never trust AI-generated code blindly.** Treat it as a helpful suggestion or starting point.
+    *   Review generated code against the `Secure Coding Standards & AI Code Review Checklist` (Component #8). Run linters and tests.
+    *   Verify functional correctness and logical soundness.
+    *   Refactor as needed for clarity, maintainability, and project standards.
+*   **Iterate on Prompts (Locally):** If a prompt from the library isn't giving you the results you need for a specific tricky case, you can experiment!
+    *   Find the prompt file in your local clone of the `prompt-library`.
+    *   Modify it locally (the backend service running via docker-compose with hot-reloading should pick up the change).
+    *   Try invoking it again via the IDE Plugin.
+    *   If you find a significant improvement, consider contributing it back (see Section 5).
+*   **Consult Standards:** Refer back to the `Prompt Engineering Standards` (Component #1) and `Secure Coding Standards` (Component #8) when needed.
+
+## 4. Troubleshooting and FAQ
+
+*   **Error: "Cannot connect to Prompt Backend Service"**
+    *   Ensure Docker Desktop is running.
+    *   Verify the `prompt-service` container is running (`docker ps`). If not, try restarting it (`docker-compose down && docker-compose up -d` in the service directory).
+    *   Check the Plugin settings in your IDE – is the URL/port correct (`http://127.0.0.1:8000`)?
+    *   Check the service logs (`docker-compose logs prompt-service`) for any startup errors.
+*   **Error: "Prompt Not Found"**
+    *   Ensure your local `prompt-library` clone is up-to-date (`git pull` in that directory).
+    *   Make sure the prompt ID you're requesting exists in the library and that the backend service volume mount is pointing to the correct local path. Restart the docker-compose service after significant library changes if needed.
+*   **Plugin is Slow or Unresponsive**
+    *   Check the logs for the backend service and the IDE's developer console for any errors.
+    *   Ensure your machine has sufficient resources for Docker and the IDE.
+*   **AI Output is Poor Quality**
+    *   Review the prompt generated by the Plugin – was the context appropriate?
+    *   Try refining the context you provide.
+    *   Consider if the prompt itself (from the library) needs improvement (see Section 5).
+    *   Experiment with different LLM settings (e.g., temperature) if your chat interface allows.
+
+*(Add more common issues and solutions as they arise)*
+
+## 5. Contributing to the Ecosystem
+
+We encourage contributions to improve our AI-assisted workflow!
+
+*   **Improving Prompts:** If you develop a significantly better version of an existing library prompt or a new reusable prompt, please follow the [Prompt Contribution and Review Guidelines](link_to_component_13.md) to submit it via a Pull Request to the `Centralized Prompt Library/Repository`. Remember to include test cases!
+*   **Suggesting New Tools/Features:** Have ideas for improving the IDE Plugin, the backend service, or the overall workflow? Discuss them with the DevX team (`ai_devx_tooling_specialist_v1`) or open an issue in the relevant repository.
+*   **Updating Documentation:** Found errors or areas for improvement in this guide or other documentation? Submit a PR!
+
+## 6. Getting Help
+
+*   **Chat Channel:** #ai-assist-workflow *(Example)*
+*   **Point of Contact:** `ai_devx_tooling_specialist_v1`, Team Lead Name
+*   **Repository Issues:** Open issues in the relevant Git repositories.
+
+---
+**Review Cycle:** Monthly (initially), then Quarterly
+**Last Updated:** [Current Date]

@@ -1,0 +1,64 @@
+# Prompt: MotM Orchestrator Refactor
+
+**Date:** 2025-04-27
+**Project:** MotM Orchestrator
+**Authors:** William F Knowles III
+
+## Goal
+To refactor an existing orchestrator.
+
+**Orchetrator Parent Directory:** `/Users/willknowles/.wfkAi/brain/workflows/orchestrators/MotM/`
+**MotM Prompt Directory:** `/Users/willknowles/.wfkAi/brain/prompts/MotM`
+**Today's Orchestrator Directory:**`/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/04/27/orchestrator`
+
+**V2 MotM:** `/Users/willknowles/.wfkAi/brain/workflows/orchestrators/MotM/Orchestrator.prompt`
+
+**V1 MotM - Round 1:** `/Users/willknowles/.wfkAi/brain/prompts/MotM/meeting-of-the-minds-round-meta.md`
+**V1 MotM - Round 2:** `/Users/willknowles/.wfkAi/brain/prompts/MotM/meeting-of-the-minds-round-meta-2.md`
+**V1 MotM - Round 3:** `/Users/willknowles/.wfkAi/brain/prompts/MotM/meeting-of-the-minds-round-meta-3.md`
+**V1 MotM - Result:**`/Users/willknowles/.wfkAi/brain/knowledge/chronological/2025/04/26/MotM-mvp`
+
+Step 1: Crawl the `Orchestrator Parent Directory`
+    - Notice the markdown documentation. It contains vital information about the overall process.
+    - Notice the naming and casing conventions in use. You'll need to match these patterns.
+    - Notice the `state.schema.json` file. This is the schema for the expected state.
+    - Notice all 14 steps and how data is passed among them.
+    - Notice how values within `V2 MotM` have been hardcoded as part of delivering an MVP.
+    - Notice `AUXILLARY_FILES.md` and how the orchestrator creates _aux_files as part of its process.
+    - Notice how the orchestrator's _aux_files are intended to be created within `Orchestrator Parent Directory`.
+
+Step 2: Consider these updated requirements
+    - I would like to remove the hardcoding within `Orchestrator.prompt` and implement inputs and interface contract's for the currently hardcoded value(s).
+    - I would like to include in the inputs an `output_dir` that will dictate where the `requirements.md` and `roadmap.md` files will be created. I would like that value passed to the state object and then passed and implementeted within the relevant document creation step.
+    - I would like a new prompt created to act as the "main interface" for passing these values to `Orchestrator.prompt` utilizing outputs
+    - I still want for _aux_files (see `V1 MotM - Result` directory for round-X subdirectories) to be created within `Orchestrator Parent Directory`. However, i would like for them to be removed as a last step. They are just intermediary files, needed for building up to the final outputs. 
+    - Prior to cleaning up the _aux_files, we need to create and insert a step for verifying the existence and content of both `requirements.md` and `roadmap.md`.
+    - I would like a new prompt created to serve as the new main MotM interface within `MotM Prompt Directory` with defined outputs for `output_dir` and `concept` utilizing interface contracts. The prompt should have a place to define the `output_dir` and a larger area for me to write out my `concept`.
+
+Step 3: Consider my reasoning.
+    - The entire `Orchestrator Parent Directory` is a MVP state. This was determined within conversations from `V1 MotM - Result`.
+    - It's been wonderfully designed, but it's not ideal to use right now. It leaves behind artifacts I don't need and it's not clunky and ideal to use. I would be scared to let someone edit `Orchestrator.prompt` to input a different concept, but I'm 90% ceertain they'd mess up one of our carefully crafted orchestrator.
+    - Due to the poor UX and safety concerns, I'm wanting to refactor the orchestrator to better align within a pleasant UX and greater utility.
+
+Step 4: Be aware of MotM's origins.
+    - Notice `V1 MotM - Round 1` and how our r1 steps are reflected within a monolithic prompt. Notice `pre-analysis`, `sme-interviews`, `sme-group-interview.md`, and `analysis.md` and the conversations and determinations made within them.
+    - Notice `V1 MotM - Round 2` and how our r2 steps are reflected within a monolithic prompt. Notice `pre-analysis`, `sme-interviews`, `sme-group-interview.md`, and `analysis.md` and the conversations and determinations made within them.
+    - Notice `V1 MotM - Round 3` and how our r3 steps are reflected within a monolithic prompt. Notice `pre-analysis`, `sme-interviews`, `sme-group-interview.md`, and `analysis.md` and the conversations and determinations made within them.
+    - Notice `V1 MotM - Result`. This was the result of the those 3 v1 rounds.
+
+Step 5: Model considerations.
+    - All work created must conform to the existing patterns and conventions.
+    - All work created must respect it's origins, and be a reflection of the spirit of the sum total of conversations and determinations.
+    - All work planned and created should be in alignment with my reasoning.
+    - All work should be precise, like a surgeon. Details matter. At no point should you assume or guess.
+    - All work should be production ready, not an approximation of my requirements or "concepts of a plan."
+    - You should adopt the most appropriate persona for the relevant analysis and refactoring.
+
+Step 6: Prepare outputs.
+    - I would like a thesis quality analysis report detailing your understanding of my request, your analysis of the model considerations and how it will shape your solution, any conflicts you might perceive, any optimizations you would like to perform within this refactoring round, any suggestions or improvements you'd like considered in this round of refactoring, your determined solution, and a step by step plan with appropriate phasing and steps to complete the work.
+    - When we start to refactor the overall orchestrator, we'll create them seperate from the existing work. I'll copy it over as a safety measure.
+    - I would like you to create all artifacts requested within `Today's Orchestrator Directory`.
+
+Step 7: Confirm outputs
+
+

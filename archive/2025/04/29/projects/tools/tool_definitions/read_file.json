@@ -1,0 +1,31 @@
+{
+  "name": "read_file",
+  "description": "Reads the full content of a specified file. Access is restricted to predefined allowed directories (e.g., data/, docs/). Cannot read files outside these areas.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "file_path": {
+        "type": "string",
+        "description": "The relative or absolute path to the file to read."
+      }
+    },
+    "required": ["file_path"]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean",
+        "description": "True if the file was read successfully, False otherwise."
+      },
+      "content": {
+        "type": ["string", "null"],
+        "description": "The content of the file if successful, otherwise null."
+      },
+      "error": {
+        "type": ["string", "null"],
+        "description": "An error message if unsuccessful (e.g., 'Access Denied', 'File Not Found'), otherwise null."
+      }
+    }
+  }
+} 

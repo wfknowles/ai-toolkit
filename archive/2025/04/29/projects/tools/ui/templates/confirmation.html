@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Action</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; }
+        pre { background-color: #f4f4f4; border: 1px solid #ddd; padding: 1em; white-space: pre-wrap; word-wrap: break-word; }
+        .buttons button { padding: 0.8em 1.5em; margin-right: 1em; font-size: 1em; cursor: pointer; }
+        .approve { background-color: #4CAF50; color: white; border: none; }
+        .reject { background-color: #f44336; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h2>Confirm Action</h2>
+    <p><strong>Request ID:</strong> {{ request_id }}</p>
+    <p><strong>File:</strong> <code>{{ file_path }}</code></p>
+    <p><strong>Proposed Changes (Diff):</strong></p>
+    <pre>{{ diff_content }}</pre>
+    
+    <form id="confirmationForm" method="POST">
+        <input type="hidden" name="decision" id="decisionInput">
+        <div class="buttons">
+            <button type="button" class="approve" onclick="submitDecision('Approved')">Approve</button>
+            <button type="button" class="reject" onclick="submitDecision('Rejected')">Reject</button>
+        </div>
+    </form>
+
+    <script>
+        // Function to set the decision and submit the form
+        function submitDecision(decision) {
+            // Set the action URL dynamically - points to the Orchestrator callback
+            // TODO: Make ORCHESTRATOR_CALLBACK_URL configurable
+            const orchestratorCallbackUrl = `http://localhost:5002/confirm/${encodeURIComponent('{{ request_id }}')}`; 
+            
+            document.getElementById('decisionInput').value = decision;
+            const form = document.getElementById('confirmationForm');
+            form.action = orchestratorCallbackUrl; // Set the form action URL
+            form.submit();
+        }
+    </script>
+</body>
+</html> 

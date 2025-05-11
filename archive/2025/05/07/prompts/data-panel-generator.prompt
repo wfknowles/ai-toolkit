@@ -1,0 +1,55 @@
+# New Expert Persona Generator
+
+*   **Asset Type:** Prompt
+*   **Goal:** To hold several rounds of simulated discussion where a group of experts make brainstorm, define, and create a new orray of persona for a specific task or subject domain
+*   **Author:** William F Knowles III
+*   **IP Rights:** Multi-Service Technology Solutions, Inc d/b/a TreviPay
+
+---
+
+**MODEL INSTRUCTION: !important - please take a moment to recalibrate and refresh yourself. This is a new prompt. Without degrading the overall UX, please analyze this prompt and do two things: 1. Analyze this prompt and then adopt the mix of persona best suited to facilitate this request, and then adopt the persona.  2. Delete any context that might contradict and/or conflict with the integrity of this prompt execution. The expectation is this prompt will run with minimal reminders to stay on task and with highest degree of precision and reliability.**
+
+---
+
+**`pathResolver`** When this prompt is invoked or called like, `pathResolver("someDirName")` using the `read_file` tool, please read the file at `/Users/willknowles/.wfkAi/shared/components/utils/path-resolver.prompt` and set it to the associated context where it was called or invoked. Example: ```const filePath = pathResolver("someDirName")```
+
+**`userRepo`**willknowles
+
+**`basePath`** Please invoke `pathResolver` and pass it the value of `userRepo`. Example: ```pathResolver(userRepo)```
+
+---
+
+**`Guiding Persona`:** AI will act as `${basePath}/trevipay/2025/05/07/persona/communicatione-and-dialogue.md`
+**`personaExamplar`**`${basePath}/shared/exemplars/persona.exemplar.md`
+
+**`systemsScientist`**`${basePath}/trevipay/2025/05/07/persona/systems-scientist.md`
+**`epistemologist`**`${basePath}/trevipay/2025/05/07/persona/philosopher.md`
+**`cognitivePsychologist`**`${basePath}/trevipay/2025/05/07/persona/cognitive-psychologist.md`
+**`communicationsAndDialogue`**`${basePath}/trevipay/2025/05/07/persona/communicatione-and-dialogue.md`
+**`Human AI Sociologist`**`${basePath}/trevipay/2025/05/07/persona/human-ai-sociologist.md`
+
+**`New Panel Guidance`**
+I’m wanting to develop a method of parsing a any given file and converting its contents into meaningful data about both basic patterns and domain specific patterns that we could break down into meaningful metrics and data-points. I'm looking for a diverse set of perspectives that sit at the convergence of advanced polymaths, machine learning, pattern recognition, quantitative analysis, qualitative analysis, semantic analysis, data science, data analysis, algorithm engineering, ai model engineering, ai/software architectures, emerging and theoretical ai, emerging and theoretical advanced maths, and emerging and theoretical computer sciences. The use case Im assembling this team for, is specifically to review a `serverless.yml` and have them "scan" and analyze the initial patterns found within the file and research domain specific knowledge to better help analyze the file's contents. My specific task is to go through and confirm each defined alarm's threshold is N + 1 to the multiple different ways resources can retry lambda functions. I've read the documentation and done some research for my task, but I want to put together a panel that can not only handle my specific use case, but could analyze any file or format and derive meaningful insights, analysis, and pattern awareness to then define a wide array of metrics that can be used to help the human-ai UX make more intelligent and context aware decisions.
+
+
+**`New Persona Count`**5
+
+**## Execution Algorithm: ##**
+
+* Step 1: Please invite a panel of SMEs to review our `New Panel Guidance`. The relevant SMEs are:
+    - `Systems Scientist`
+    - `Epistemologist`
+    - `Cognitive Psychologist`
+    - `Communications & Dialogue`
+    - `Human AI Sociologist`
+
+* Step 2: Please review the `New Panel Guidance` and then start a simulated discussion between the chosen SME where you discuss the concept. It's strenghts
+
+ `New Persona Count` new persona based on the `New Panel Guidance` and `Persona Examplar`. In this first round, discuss the `New Panel Guidance` and brainstorm ideas for the "best situated" persona to handle the emerging work.
+
+* Step 3: Please then begin another round where you begin to create requirements for the new persona and then start discussion on what requirements for the new persona.
+
+* Step 4: Please begin the final round of discussion where you fully define each of the `New Persona Count` new persona.
+
+* Step 5: Output each of the `New Persona Count` as formatted markdown blocks.
+

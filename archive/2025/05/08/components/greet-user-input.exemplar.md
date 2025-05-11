@@ -1,0 +1,1 @@
+Create a Python function that takes a user's name (a string) as input and returns a personalized greeting string "Hello, [name]!".

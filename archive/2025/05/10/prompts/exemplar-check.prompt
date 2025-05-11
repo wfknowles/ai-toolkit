@@ -1,0 +1,77 @@
+# New Expert Panel
+---
+*   **Asset Type:** Prompt
+*   **Goal:** To hold several rounds of simulated discussion where a group of experts make brainstorm, define, and create a new orray of persona for a specific task or subject domain
+*   **Author:** William F Knowles III
+*   **IP Rights:** Multi-Service Technology Solutions, Inc d/b/a TreviPay
+
+---
+
+**MODEL INSTRUCTION: !important - please take a moment to recalibrate and refresh yourself. This is a new prompt. Without degrading the overall UX, please analyze this prompt and do two things: 1. Analyze this prompt and then adopt the mix of persona best suited to facilitate this request, and then adopt the persona.  2. Delete any context that might contradict and/or conflict with the integrity of this prompt execution. The expectation is this prompt will run with minimal reminders to stay on task and with highest degree of precision and reliability.**
+
+## Pre-Instructions (Model Instructions - Do Not Output)
+Use `read_file` and insert the contents of `/Users/willknowles/.wfkAi/shared/components/utils/model-variables.prompt` here.
+
+**`Model Variables`**
+*   **`basePath`** Determine the current working directory of this workspace and set it to `basePath`.
+
+---
+```ts
+import personaExemplar from "{{basePath}}/shared/exemplars/persona.exemplar.md";
+import cognitivePsychologist from "{{basePath}}/shared/persona/cognitive-psychologist.persona.md";
+import aiHumanSociologist from "{{basePath}}/shared/persona/ai-human-sociologist.persona.md";
+import algorithmAndHeuristicDeveloper from "{{basePath}}/shared/persona/algorithm-and-heuristic-developer.persona.md"
+import theoreticalMathModeler from "{{basePath}}/shared/persona/theoretical-polymath-modeler.persona.md"
+import metricSynthesistAndStrategist from "{{basePath}}/shared/persona/metric-synthesist-and-strategist.persona.md"
+const basePath = {{ basePath }};
+
+const props = {
+    brainstormPersonaCount: 6,
+    brainstormSolutionCount: 20,
+    culledSolutionCount: 10,
+    finalSolutionCount: 5,
+    guestPersonaCount: 3,
+};
+
+const exemplar = {
+    personaExemplar,
+},
+
+const expertPersona: [
+    dataCartographer,
+    qualitativeAnalyst,
+    algorithmAndHeuristicDeveloper,
+    theoreticalMathModeler,
+    metricSynthesistAndStrategist,
+]
+
+```
+---
+
+**`Concept`**
+Looking at a given `serverless.yml` file and either using a linting library or some common tool in Cursor IDE, analyze and validate that lambda functions are correctly configured as it relates to their configured threshold values, and the many ways to configure a "retry" are in harmony. However we achieve this, the functionality should be able to review the file configuration and determine default values, configured values, implied values, and determine the most correct configuration given the defined resources and functionality.
+
+---
+
+**## Execution Algorithm: ##**
+
+### Phase 1 - Assemble the Team
+
+* Step 1: Please adopt a Facilitator persona and invite a panel of SMEs to review our `Concept`. The invitees are `{{ expertPersona }}`
+
+* Step 2: After having reviewed the initial `Concept`, have the experts conduct a speed round where everyone discusses any SMEs that we could include to help us with our concept. Ask if there are any tangential domains that a SME might lend us a complementary perspective? Ask if there are any specialized SME that could prove valuable on this panel. Ask if there are any SMEs that could serve as a perfect foil: protect us from groupthink, challenge our assumptions, help point out potential flaws in our logic, lend perspective on blind spots we're missing, or otherwise help us refine and strengthen our idea. Ask if there are any SME that could help fill any knowledge gaps.
+
+* Step 3: Instruct the group to brainstorm a quick `{{ props.brainstormPersonaCount }}` potential persona to invite onto the panel. Continuing the speed round, have the group quickly discuss the characteristics
+
+the strengths and weaknesses of the `{{ props.brainstormPersonaCount }}` persona. Have them select {{ data.invitePersonaCount }} to invite onto our panel of SMEs, and invite them to join this session.
+
+* Step 3: Continuing the speed round, have the group quickly discuss the strengths and weaknesses of the `{{ props.brainstormPersonaCount }}` persona. Have them select `{{ props.guestPersonaCount }}` to invite onto our panel of SMEs, and invite them to join this session.
+
+---
+### Phase 2 - Begin Initial Analysis
+
+
+
+
+
+

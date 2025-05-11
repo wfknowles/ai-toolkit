@@ -1,0 +1,13 @@
+# AI Orchestrator Architect - Pre-Analysis Concepts
+
+*Initial concepts focusing on architecture to support quantitative analysis, formula execution, and agent tool usage.*
+
+1.  **Dedicated Calculation Service:** Architect a separate microservice (e.g., Python/Flask with Pandas/NumPy, or Node.js with math libraries) specifically for executing financial formulas (DTI, Savings Rate, Projections, Variance, Statistical Analysis) reliably and efficiently, keeping complex math out of the main application logic.
+2.  **Data Flow for Calculations:** Design orchestrated data flows. E.g., Onboarding completion triggers flow: fetch user inputs -> call Calculation Service for Disposable Income & DTI -> store results -> notify user/agent.
+3.  **Agent Tool Invocation Orchestration:** When an agent needs a calculation or explanation, the orchestrator routes the request: Agent -> Orchestrator -> Calculation Service (for numbers) / Prompt Service (for LLM explanation using numbers) -> Orchestrator -> Agent/User.
+4.  **Plaid Data Processing Pipeline:** Architect an asynchronous pipeline (e.g., using message queues like RabbitMQ/Kafka) for fetching Plaid data, running categorization (w/ confidence scoring), and potentially pre-calculating aggregates/trends to feed analysis services.
+5.  **Configuration Injection into Services:** Ensure the architecture allows expert configuration parameters (e.g., DTI thresholds, budget %s, anomaly sensitivity `X`) to be securely passed to the Calculation Service or Agent monitoring logic.
+6.  **Caching Layer for Metrics:** Implement a caching layer (e.g., Redis) to store frequently accessed calculated metrics (Disposable Income, Savings Rate) to reduce redundant calculations and improve UI responsiveness.
+7.  **API Design for Financial Data:** Define clear API contracts (e.g., OpenAPI spec) for services providing financial data, calculation results, or analysis outputs, ensuring consistency.
+8.  **Historical Data Management for Analysis:** Design database schemas (PostgreSQL) and potential time-series datastores (e.g., TimescaleDB, InfluxDB) optimized for querying historical transaction data needed for trend analysis and statistical calculations (e.g., anomaly detection).
+9.  **Error Handling & Fallbacks:** Architect robust error handling for calculation failures (e.g., missing data) or Plaid API issues. Provide sensible fallbacks or clear error messages to the user/agent. 

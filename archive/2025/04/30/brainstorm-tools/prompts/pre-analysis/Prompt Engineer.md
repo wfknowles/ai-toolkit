@@ -1,0 +1,13 @@
+# Prompt Engineer - Initial Concepts
+
+Based on the goal of brainstorming practical, useful, complex, or advanced prompt concepts within the software maintenance lifecycle, here are 9 initial ideas:
+
+1.  **Automated Regression Test Script Generation:** A prompt that takes a description of a bug fix or feature change (e.g., commit message, JIRA ticket details) and generates preliminary regression test scripts (e.g., Playwright, Selenium, unit test stubs) focusing on the affected areas.
+2.  **Code Refactoring Suggestion:** A prompt that analyzes a selected code snippet or file, identifies potential refactoring opportunities (e.g., complexity reduction, adherence to SOLID principles, performance bottlenecks), and suggests specific refactoring patterns with code examples.
+3.  **Dependency Update Impact Analysis:** A prompt that takes a list of proposed dependency updates (e.g., from `npm outdated` or `pip list --outdated`) and analyzes the codebase to predict potential breaking changes, required code modifications, and testing focus areas.
+4.  **Technical Debt Identification & Prioritization:** A prompt that scans code comments (e.g., `// TODO:`, `// FIXME:`) and potentially analyzes code metrics (complexity, duplication) to identify technical debt items, categorize them, and suggest a prioritization based on estimated effort and potential impact.
+5.  **Log Analysis & Anomaly Detection:** A prompt designed to process application logs, identify unusual patterns or error spikes, summarize potential root causes, and suggest specific log queries or code areas to investigate further.
+6.  **Onboarding Documentation Generation:** A prompt that analyzes a specific module or feature codebase and generates initial onboarding documentation for new developers, explaining the purpose, key components, data flow, and setup instructions.
+7.  **Security Vulnerability Contextualization:** A prompt that takes a CVE identifier or a security scanner report item, analyzes the relevant code sections where the vulnerability might manifest, and provides context on how it could be exploited within *this specific application*, suggesting mitigation steps.
+8.  **API Contract Conformance Check:** A prompt that compares a service's implementation (e.g., controller code, route definitions) against its defined API contract (e.g., OpenAPI/Swagger spec) and highlights discrepancies or potential violations.
+9.  **User Feedback Driven Bug Report Enhancement:** A prompt that takes raw user feedback (e.g., support tickets, app store reviews mentioning issues) and attempts to translate it into a structured bug report, suggesting potential reproduction steps, affected code areas, and severity levels based on the description. 

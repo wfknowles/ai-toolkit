@@ -1,0 +1,58 @@
+metadata:
+  <<: !include ../components/component_metadata.md
+  Version: '1.1.0-template'
+  Original_Location: '/path/to/prompt-engineering-edu-2-1.md' # Placeholder
+  Goal: 'Generate R2 SME lesson ideas/abstracts and conduct simulated interviews'
+
+header_instructions: !include ../components/component_agent_instructions.md
+
+configuration:
+  base: !include ../components/component_configuration_base.md
+  paths: !include ../components/component_configuration_paths_r2_1.md
+
+input_context:
+  summary: !include ../components/component_input_context_summary.md
+  items:
+    - name: Round 1 Group Interview
+      path: '{{prior_group_interview_file}}'
+    - name: Round 1 Pre-Analysis
+      path: '{{prior_pre_analysis_dir}}'
+    - name: Agreed Curriculum Outline
+      path: '{{curriculum_file}}'
+
+concept:
+  header: !include ../components/component_concept_block.md
+  description: |
+    Review the Round 1 outputs ({{input_context.items[0].path}}, {{input_context.items[1].path}}) 
+    and the agreed Curriculum Outline ({{input_context.items[2].path}}). 
+    The goal of this prompt (Round 2, Part 1) is to prepare for Round 3 (Creation of Final Deliverables: Requirements/Roadmaps/Edu Material) 
+    by working with SMEs to define lesson ideas/abstracts and then interview them regarding specific research/planning questions 
+    derived from those ideas and the overall curriculum. You will manage the process through distinct phases, ensuring all outputs are saved correctly.
+
+security_footer: !include ../components/component_security_footer.md
+
+phases:
+  - phase_name: 'Phase 1 - Meta Analysis'
+    steps: !include ../components/component_phase_meta_analysis.md
+    variables:
+       Meta_Analysis_Goal_Description: 'Generate R2 SME lesson ideas/abstracts and conduct simulated interviews'
+       SME_Count: 10 # Using 10 based on R2 SME list
+
+  - phase_name: 'Phase 2 - Setup and R2 Pre-Analysis Generation'
+    steps: !include ../components/component_phase_setup_sme_preanalysis_r2.md
+    variables:
+       SME_Count_R2: 10
+       # Paths resolved from config
+
+  # NOTE: The following included components were mentioned in the plan but not created in Phase 3.
+  - phase_name: 'Phase 3 - Facilitator Pre- Planning (Prep for R2 Interviews)'
+    steps: !include ../components/component_phase_facilitator_planning_pre_interview_r2.md
+
+  - phase_name: 'Phase 4 - Individual SME Interviews (Simulated, R2)'
+    steps: !include ../components/component_phase_individual_interviews_simulated_r2.md
+    variables:
+       SME_Count_R2: 10
+       # Paths resolved from config
+
+# NOTE: Final instruction component also not created in Phase 3.
+final_instruction: !include ../components/component_final_instruction.md 

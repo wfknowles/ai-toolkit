@@ -1,0 +1,42 @@
+**## MODEL VARIABLES ##**
+**MODEL INSTRUCTIONS: DO NOT OUTPUT IN CHAT**
+When a model variable is used within a typescript block, interpolate the value of the model variable.
+```ts
+// EXAMPLE: modelVariable = 15
+const foo = {{ modelVariable }}; // foo => 15
+const doomsdayClock = "{{ modelVariable }} minutes to midnight"; // doomsdayClock => "15 minutes to midnight"
+const bar = { baz: {{ modelVariable }}}; // bar.baz => 15
+const count = 15 + {{ modelVariable }}; // count => 30
+// EXAMPLE: modelValue = { bar: 1, song: () => ("Everlong") }
+const foo = {{ modelValue }}; // foo.bar => 1
+const fighters = {{ modelValue }} // fighters.song => "Everlong"
+```
+When a model variable is used within markdown or a markdown block, interpolate the value of the model variable.
+EXAMPLE: modelValue = user
+```json
+{ 
+    "user": [ 
+        { "name": "Sam Bean" }
+    ]
+}
+```
+Hello, {{ modelValue.name }} ... => Hello, Sam Bean ...
+EXAMPLE: modelValue = /current/working/directory
+**`base_dir`**{{ modelValue }}
+**`resource`**`base_dir/path/to/resource` => /current/working/directory/path/to/resource
+
+---
+Example Usage of setting a Model Variable:
+
+**`Model Variables`**
+*   **`basePath`** Determine the current working directory of this workspace and set it to `basePath`.
+*   ...
+
+Example Implementation of this Prompt:
+
+## Pre-Instructions (Model Instructions - Do Not Output)
+Use `read_file` and insert the contents of `/Users/willknowles/.wfkAi/shared/components/utils/model-variables.prompt` here.
+
+**`Model Variables`**
+*   **`test001`**`path/to/dir`.
+*   **`basePath`** Determine the current working directory of this workspace and set it to `basePath`.

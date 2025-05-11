@@ -1,0 +1,15 @@
+# Project Manager - Pre-Analysis & Concepts (Knowledge Leverage)
+
+**Based on:** Experience managing project lifecycles, process definition, resource planning, and coordinating cross-team efforts required for building, maintaining, and utilizing a large-scale knowledge base.
+
+**Goal:** Propose processes, workflows, and management strategies for the ongoing acquisition, curation, maintenance, and effective utilization of the organizational knowledge base.
+
+**Initial Concepts (7):**
+
+1.  **Knowledge Acquisition & Curation Process:** Define a formal process for identifying knowledge gaps, prioritizing acquisition (linking to Knowledge Roadmap), sourcing content, processing/ingesting it (ARCH-5), and ensuring quality/relevance. Assign ownership for different knowledge domains. *Leverages: Knowledge management principles, process definition.*
+2.  **KB Content Lifecycle Management:** Establish policies and processes for the entire lifecycle of knowledge content, including creation, review (CISO-3), updating, archiving, and deletion based on relevance and data retention requirements (linking to CISO/Compliance). *Leverages: Content management, data governance.*
+3.  **Integrating KB Updates into Team Workflows:** Define how maintaining and contributing to the KB (PO-6) becomes part of regular team workflows (e.g., documenting features, closing support tickets, project post-mortems). Avoid treating KB maintenance as a separate, easily ignored task. *Leverages: Workflow integration, change management.*
+4.  **KB Stakeholder Roles & Responsibilities:** Clearly define roles related to the KB, such as Knowledge Domain Owners, Content Curators, KB System Administrators (Platform Team - PM-2), and Consumers, along with their responsibilities for maintenance and usage. *Leverages: RACI matrix, role definition.*
+5.  **Measuring KB Health & Effectiveness:** Define metrics to track the health and effectiveness of the KB itself (beyond just its usage via agents - PO-7). Examples: Content freshness/staleness rates, coverage of key domains, user satisfaction with search results, time-to-ingest new content. *Leverages: Knowledge management metrics, performance measurement.*
+6.  **Change Management for KB System Updates:** Implement a change management process for significant updates to the KB system (e.g., new vector DB, updated embedding models, major schema changes - SSE-6). Communicate changes to stakeholders and manage potential impacts on agent performance or accuracy. *Leverages: ITIL/Change management processes.*
+7.  **Resource Planning for KB Maintenance:** Explicitly allocate resources (time, budget, personnel) for the ongoing maintenance, curation, and improvement of the KB and its associated systems. Ensure this isn't treated as an unfunded mandate. *Leverages: Resource planning, budgeting.* 

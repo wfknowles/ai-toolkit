@@ -1,0 +1,13 @@
+# AI Agent Engineer - Pre-Analysis Concepts (Refined)
+
+*Initial concepts focusing on AI agents operating within the configurable counseling framework, using the dad's $2618 scenario.*
+
+1.  **Configurable Goal Monitor Agent:** An agent that monitors progress towards the dad's financial goals (e.g., car savings), but its monitoring parameters (target amount, required savings rate based on $5670/mo income) and reporting style are set by the expert's configuration.
+2.  **Budget Adherence Agent (Expert Rules):** An agent that compares the dad's spending against the budget plan. Deviations trigger actions (notifications, insights) based on rules *defined in the expert configuration* (e.g., tolerance level for overspending, specific categories to watch closely).
+3.  **Habit Analysis Agent (Configurable Lens):** An agent that analyzes the dad's spending habits (from transactions) but interprets them through the lens of the expert's configuration. It might identify habits conflicting with expert goals or suggest alternatives aligned with the expert's strategy.
+4.  **Future Expense Planning Agent (Scenario-Specific):** Agent focused on the dad's future needs (kids' cars/insurance). It uses the $5670/mo income baseline and *expert-configured savings priorities* to calculate required savings and integrate them into the budget/goal suggestions.
+5.  **Information Gathering Agent (Context-Aware):** An agent that can gather specific data points (e.g., "Average spending on kids' activities over 3 months") when triggered by the orchestrator or another agent, using the context of the $2618 income and expert config to frame the relevance of the data.
+6.  **Expert Configuration Application Agent:** A meta-agent or logic within the orchestrator responsible for ensuring that the latest expert configuration for the dad is consistently applied across all active agents and AI modules interacting with him.
+7.  **Agent Suggestion Review Queue (for Expert):** Design a mechanism where potentially significant agent-generated suggestions (e.g., major budget reallocation) could optionally be queued for expert (father) review and approval before being presented to the client (dad), based on configuration.
+8.  **Parameterized Agent Behavior:** Ensure agent logic (e.g., how aggressively it suggests changes, how often it checks in) is parameterized and driven by settings in the `ClientConfiguration` object.
+9.  **Testing Agents with Configured Scenarios:** Develop test harnesses that simulate the dad's $2618 income/expense scenario and run agent logic against it using *different* expert configurations to verify correct, context-aware behavior. 

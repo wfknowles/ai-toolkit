@@ -1,0 +1,14 @@
+{
+    "lambda_function_name": "initializeJob",
+    "done_tracking": "[]",
+    "explicitly_defined_alarms": [],
+    "step_function_invocation_contexts": [
+      {
+        "invoking_sf_state_machine_name": "orchestrator",
+        "invoking_sf_task_name": "initializeJob",
+        "sf_task_retry_policies": [],
+        "sf_task_catch_configurations": []
+      }
+    ],
+    "sqs_trigger_contexts": []
+  }

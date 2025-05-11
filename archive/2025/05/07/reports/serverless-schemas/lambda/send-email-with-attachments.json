@@ -1,0 +1,36 @@
+{
+    "lambda_function_name": "sendEmailWithAttachments",
+    "done_tracking": "[]",
+    "explicitly_defined_alarms": [
+      {
+        "configured_alarm_name": "functionErrorsEmailSend",
+        "is_enabled_status": true
+      },
+      {
+        "configured_alarm_name": "functionErrors",
+        "is_enabled_status": false
+      }
+    ],
+    "step_function_invocation_contexts": [
+      {
+        "invoking_sf_state_machine_name": "orchestratorDelivery",
+        "invoking_sf_task_name": "sendEmailWithAttachments",
+        "sf_task_retry_policies": [
+          {
+            "error_equals_list": ["States.ALL"],
+            "max_attempts_n": 1,
+            "interval_seconds": null,
+            "backoff_rate": null
+          }
+        ],
+        "sf_task_catch_configurations": [
+          {
+            "error_equals_list": ["EmailWithAttachmentsDeliveryError"],
+            "next_state": "postToOrchestratorDeliveryDLQ-EmailWithAttachments",
+            "result_path": "$.error"
+          }
+        ]
+      }
+    ],
+    "sqs_trigger_contexts": []
+  }

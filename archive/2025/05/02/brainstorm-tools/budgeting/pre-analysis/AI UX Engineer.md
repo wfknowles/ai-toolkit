@@ -1,0 +1,13 @@
+# AI UX Engineer - Pre-Analysis Concepts (Refined)
+
+*Initial concepts focusing on the user experience for both client (dad, $2618 scenario) and expert (father) in the configurable counseling tool.*
+
+1.  **Client UI: Reflecting Expert's Tone:** Design the client UI (React) and conversational interactions to subtly reflect the communication style (e.g., empathetic, direct) configured by the expert for that client.
+2.  **Expert UI: Intuitive Configuration:** Design the expert configuration portal to be clear and intuitive, allowing the father to easily set parameters (goals, rules, AI style) for the dad without needing technical expertise. Use clear labels and previews.
+3.  **Visualizing Configured Budgets:** Design visualizations for the client (dad) that clearly show the budget allocation derived from their $5670/mo income *after* fixed costs, explicitly reflecting the expert's configured targets or rules.
+4.  **Explainability for Configured AI:** Design UI elements that explain *why* the AI is making a specific suggestion, linking it back to the expert's configuration. E.g., "[Expert Name] suggested prioritizing [Goal Name], which is why I'm asking about reallocating funds from [Category]."
+5.  **Client Progress Dashboard (Expert View):** Design a clear, concise dashboard for the expert (father) summarizing the client's (dad's) progress, highlighting adherence/deviations from the configured plan, and flagging areas needing attention (e.g., consistent overspending in a category despite plan).
+6.  **Handling Sensitive Topics (Dad's Scenario):** Design interactions carefully around potentially sensitive topics for the dad (child support, divorce context) ensuring the AI, guided by expert config, is supportive and non-judgmental.
+7.  **Onboarding Flow (Client):** Design onboarding for the client (dad) that introduces the concept of the AI working based on parameters set by their trusted expert (father), setting expectations correctly.
+8.  **Feedback Mechanisms (Dual):** Design distinct but easy feedback mechanisms: for the client (dad) on the AI's helpfulness, and for the expert (father) on the AI's adherence to their configured strategy.
+9.  **Trust through Transparency (Expert Config):** Build trust with the client (dad) by being transparent (where appropriate and configured by the expert) about the rules or goals guiding the AI's advice. E.g., "We're focusing on [Goal] based on [Expert Name]'s recommendation." 

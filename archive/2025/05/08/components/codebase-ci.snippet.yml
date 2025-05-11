@@ -1,0 +1,15 @@
+# In .github/workflows/codebase-ci.yml (Component #7)
+
+# ...
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'python,javascript'
+        # Option 1: Reference a separate config file for custom queries, paths, etc.
+        config-file: ./.github/codeql/codeql-config.yml
+        # Option 2: Define query suites directly
+        # queries: +security-extended # Use a broader set of security queries
+        # Option 3: Add specific queries or disable default ones
+        # queries: security-and-quality, +path/to/custom/queries, -rule:js/potential-redos
+
+    # ... rest of CodeQL steps ...

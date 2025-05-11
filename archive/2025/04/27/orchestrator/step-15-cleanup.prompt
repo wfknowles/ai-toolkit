@@ -1,0 +1,40 @@
+# Step 15: Cleanup Auxiliary Files
+
+## Purpose
+Remove the `_aux_files` directory and its contents after successful verification of final outputs.
+
+## Input
+- No direct input; expects previous step (verification) to have succeeded.
+
+## Output Contract
+- status: "success" or "error"
+- output_data: { cleanup_status: "complete" } on success
+- error_message: string if error
+
+## Implementation (pseudocode)
+
+1. Confirm previous verification step was successful
+2. Remove the `_aux_files` directory and all its contents
+3. Output JSON result
+
+---
+
+```json
+{
+  "status": "success",
+  "output_data": { "cleanup_status": "complete" },
+  "summary": "Auxiliary files cleaned up successfully.",
+  "error_message": ""
+}
+```
+
+If cleanup fails, output:
+
+```json
+{
+  "status": "error",
+  "output_data": {},
+  "summary": "",
+  "error_message": "[Describe the error]"
+}
+``` 

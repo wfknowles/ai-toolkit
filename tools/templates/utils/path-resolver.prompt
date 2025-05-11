@@ -1,0 +1,61 @@
+# Path Resolver (Router)
+
+---
+**Defined Inputs**
+```json
+{
+    "userRepo": "willknowles"
+}
+```
+---
+
+```ts
+enum UserDirectory {
+    Work = 'wknowles',
+    Personal = 'willknowles',
+}
+
+enum AiPath {
+    Work = `/Users/${UserDirectory.Work}/Develop/ai/wfkAi`,
+    Personal = `/Users/${UserDirectory.Personal}/.wfkAi`,
+}
+
+export interface PromptInputs {
+    userRepo: string;
+    rootDir?: string;
+    subDir?: string;
+}
+
+export interface PromptOutputs {
+    absolutePath: string;
+}
+
+export function pathResolver(userRepo: string) {
+    switch (userRepo) {
+        case UserDirectory.Work:
+            return AiPath.Work;
+        case UserDirectory.Personal:
+            return AiPath.Personal;
+        default:
+            throw new Error(`BadRequest - Directory Not Found: ${userRepo}`);
+    }
+}
+```
+**Required Inputs:** Using a typescript interpreter, please interpret the PromptInputs interface as this prompt's input schema. 
+
+
+---
+**Required Output** Using a typescript interpreter, please interpret the PromptOutputs interface as this prompt's output schema.
+
+Using a typescript interpreter, please interpret this function call as typescript would
+
+**user_repo:**`wknowles`
+**user_dependent_dir:**IF user_repo === `wknowles`
+                    return `/Users/[user_repo]/Develop/ai/wfkAi`
+                ELSE IF user_repo === `willknowles`
+                    return `/Users/[user_repo]/.wfkAi`
+                END
+**output_root:**`/brain/knowledge/chronological/2025/05/01`
+**output_dir:**`brainstorm-tools`
+**output_subdir:**`meta-prompts`
+**absolute_path:**`[output_root/[output_dir]/[output_subdir]`

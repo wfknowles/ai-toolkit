@@ -1,0 +1,55 @@
+## Prompt for AI Assistant: Analyze `serverless.yml` for Lambda Alarms, Sharing, and Step Function Retry Logic
+
+**Objective:**
+
+I need you to act as a data extraction assistant. Your task is to meticulously analyze the provided `serverless.yml` content and compile a structured dataset. This dataset will help me understand the relationship between Lambda functions, their configured CloudWatch alarms (especially shared ones), and their retry configurations when invoked by AWS Step Functions.
+
+**Input:**
+
+The complete content of the `serverless.yml` file will be provided following this prompt.
+
+**Instructions for Data Extraction and Compilation:**
+
+Please perform the following steps and compile the results into a single markdown table:
+
+1.  **Identify All Lambda Functions and Their Configured Alarms:**
+    *   Iterate through each function defined in the `functions:` section of the `serverless.yml`.
+    *   For each Lambda function, list all alarm names specified under its `alarms:` block.
+
+2.  **Determine Alarm Sharing Status:**
+    *   For each unique alarm name identified in the entire file (from all Lambda function `alarms:` blocks), determine if that alarm name is used by more than one Lambda function.
+    *   When listing alarms for a specific Lambda later, you will indicate if *that specific alarm instance* is part of a shared set.
+
+3.  **Cross-Reference with Step Function `MaxAttempts`:**
+    *   For each Lambda function identified:
+        *   Search all state machine definitions located in `stepFunctions.stateMachines.*.definition.States`.
+        *   Identify any `Task` states where the `Resource` parameter points to the current Lambda function (this is often done using `Fn::GetAtt: [LambdaFunctionName, Arn]`).
+        *   If such a task state is found and it has a `Retry` configuration, extract the `MaxAttempts` value.
+        *   If a Lambda is called by multiple Step Function tasks, or by tasks with different `MaxAttempts` values, please note all of them.
+        *   If a Lambda is not invoked by any Step Function task, or if the invoking task does not have a `MaxAttempts` value specified in its `Retry` block, indicate this as "N/A" or "0" for `MaxAttempts` as appropriate.
+
+4.  **Calculate Ideal Alarm Threshold:**
+    *   For each instance where a `MaxAttempts` value (`N`) is found for a Lambda's Step Function invocation, calculate an "Ideal Threshold" as `N + 1`. This assumes the desired behavior is to alert only after the initial attempt plus all `N` retries have failed.
+    *   If `MaxAttempts` is "N/A" or "0", the ideal threshold might also be "N/A" or "1" respectively (or note that it depends on other factors).
+
+5.  **Compile the Data into a Markdown Table:**
+    Please structure the output as a markdown table with the following columns. Ensure each row corresponds to a unique Lambda function. If a Lambda has multiple Step Function invocation contexts with different `MaxAttempts`, you might need to represent that clearly, perhaps in the notes or by detailing each context if vital.
+
+    | Lambda Function Name      | Invoking Step Function Task(s) / Context | Task `MaxAttempts` (N) | Calculated Ideal Threshold (N+1) | Configured Alarm Names (from `alarms:` block) | Is This Alarm Name Shared Across Lambdas? | Notes / Observations                                     |
+    | :------------------------ | :--------------------------------------- | :--------------------- | :------------------------------- | :-------------------------------------------- | :---------------------------------------- | :------------------------------------------------------- |
+    |                           |                                          |                        |                                  |                                               |                                           |                                                          |
+
+**Example Row (Illustrative):**
+
+| Lambda Function Name      | Invoking Step Function Task(s) / Context | Task `MaxAttempts` (N) | Calculated Ideal Threshold (N+1) | Configured Alarm Names (from `alarms:` block) | Is This Alarm Name Shared Across Lambdas? | Notes / Observations                                                                |
+| :------------------------ | :--------------------------------------- | :--------------------- | :------------------------------- | :-------------------------------------------- | :---------------------------------------- | :---------------------------------------------------------------------------------- |
+| `sendEmailWithAttachments`| `orchestratorDelivery/.../generateDeliveries` | 1                      | 2                                | `functionErrorsEmailSend`                     | Yes                                       | `functionErrorsEmailSend` is used by 2 other Lambdas. Ideal threshold lines up with N+1. |
+| `anotherLambda`           | `myStateMachine/MyTask`                  | 3                      | 4                                | `uniqueAlarmForAnotherLambda`                 | No                                        |                                                                                     |
+| `lambdaNotInSF`           | N/A                                      | N/A                    | N/A or 1                         | `genericFunctionErrors`                       | Yes                                       | No Step Function `MaxAttempts` found. Ideal threshold based on default expectations.  |
+
+**Final Check:**
+
+*   Ensure every Lambda function from the `functions:` section is included in the table.
+*   The "Is This Alarm Name Shared Across Lambdas?" column should reflect whether the specific alarm name listed for *that* Lambda is also found under the `alarms:` block of *other* Lambdas in the file.
+
+This detailed breakdown should allow you (or another AI) to systematically extract and present the data I need for my analysis. Thank you!

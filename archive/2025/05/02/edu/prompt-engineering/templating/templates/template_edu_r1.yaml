@@ -1,0 +1,66 @@
+metadata:
+  <<: !include ../components/component_metadata.md # Use YAML merge key for metadata
+  Version: '1.1.0-template'
+  Original_Location: '/path/to/prompt-engineering-edu-1.md' # Placeholder, actual path needed
+  Goal: 'Define high-level course outline via simulated SME interaction'
+
+header_instructions: !include ../components/component_agent_instructions.md
+
+configuration:
+  base: !include ../components/component_configuration_base.md
+  paths: !include ../components/component_configuration_paths_r1.md
+  # Add specific path values if needed, resolved here or by execution engine
+
+input_context:
+  summary: !include ../components/component_input_context_summary.md
+  items:
+    - name: Concept Discussion (Brainstorm)
+      path: '{{round1_brainstorm_dir}}/sme-group-interview.md' # Variables from config
+    - name: Concept Pre-Analysis (Brainstorm)
+      path: '{{round1_brainstorm_dir}}/pre-analysis/'
+
+concept:
+  header: !include ../components/component_concept_block.md
+  description: |
+    Review the previous brainstorming discussion ({{input_context.items[0].path}}) 
+    and the initial SME concepts ({{input_context.items[1].path}}). 
+    The goal is to synthesize these ideas and define a high-level outline 
+    (major sections/units) for an educational course on mastering prompt engineering.
+
+security_footer: !include ../components/component_security_footer.md
+
+phases:
+  - phase_name: 'Phase 1 - Meta Analysis'
+    steps: !include ../components/component_phase_meta_analysis.md
+    # Add specific values for placeholders like {{Meta_Analysis_Goal_Description}}
+    variables:
+       Meta_Analysis_Goal_Description: 'Define high-level course outline via simulated SME interaction'
+       SME_Count: 11
+
+  - phase_name: 'Phase 2 - Setup and SME Pre-Analysis Generation'
+    steps: !include ../components/component_phase_setup_sme_preanalysis_r1.md
+    variables:
+       SME_Count_R1: 11
+       # Paths will be resolved from configuration block
+
+  - phase_name: 'Phase 3 - Facilitator Pre-Planning (Round 1 - Prep for Interviews)'
+    steps: !include ../components/component_phase_facilitator_planning_pre_interview_r1.md
+
+  # NOTE: The following included components were mentioned in the plan but not created in Phase 3.
+  # They will need to be created if this template is executed by an engine expecting them.
+  - phase_name: 'Phase 4 - Individual SME Interviews (Simulated)'
+    steps: !include ../components/component_phase_individual_interviews_simulated_r1.md 
+    variables:
+       SME_Count_R1: 11
+
+  - phase_name: 'Phase 5 - Facilitator Pre-Planning (Round 2 - Prep for Group Session)'
+    steps: !include ../components/component_phase_facilitator_planning_pre_groupsession_r1.md
+
+  - phase_name: 'Phase 6 - Meeting of the Minds (Simulated Group Session)'
+    steps: !include ../components/component_phase_group_session_r1.md
+
+  - phase_name: 'Phase 7 - Analysis Paper Generation (Simplified from Original)'
+    steps: !include ../components/component_phase_analysis_paper_r1.md
+
+# NOTE: Final instruction component also not created in Phase 3.
+final_instruction: !include ../components/component_final_instruction.md 

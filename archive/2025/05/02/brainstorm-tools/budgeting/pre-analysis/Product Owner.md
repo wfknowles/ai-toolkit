@@ -1,0 +1,13 @@
+# Product Owner - Pre-Analysis Concepts (Refined)
+
+*Initial concepts focusing on product features and value proposition for the configurable counseling tool, centered on the dad's $2618 bi-weekly scenario.*
+
+1.  **MVP: Configurable Core Budgeting:** Define MVP scope focused on the expert (father) configuring basic budget rules (e.g., % targets based on $5670/mo income after fixed costs) and the client (dad) seeing this budget, tracking spending against it, and basic goal tracking (1-2 expert-prioritized goals).
+2.  **Expert Configuration Feature:** Prioritize the feature set enabling the expert to securely log in, view their clients, and set/modify key parameters (priority goals, savings targets as % of $2618, communication style for AI) for each client.
+3.  **Personalized Goal Setting Flow (Client):** Feature enabling the client (dad) to set specific goals (e.g., "Save for kids' car insurance") that are guided by the expert's pre-configured priorities and reflect the available funds from the $5670/mo income.
+4.  **Ongoing Counseling Interaction Feature:** Define the core user flow for the client's regular interaction with the AI counselor. How often does it check in? What triggers interactions (e.g., budget deviations, goal milestones)? How does it reflect the expert's configured style?
+5.  **Handling Dad's Specific Expenses:** Ensure features explicitly address the scenario's complexities: planning for irregular orthodontics payments, setting savings goals for future car needs (12/14 yr olds), budgeting around child support. The budget setup must account for these using the $2618 income.
+6.  **Value Proposition: Expert Extension:** Clearly define the product value as an extension of the expert's service – providing consistent, personalized, expert-configured guidance between human counseling sessions.
+7.  **Client Progress View (for Expert):** Feature allowing the expert (father) to easily view a dashboard summarizing the client's (dad's) adherence to the configured budget, progress on goals, and key challenges identified by the AI, based on the $2618 scenario.
+8.  **Phased Rollout of AI Complexity:** Plan product phases where initial AI might follow simpler expert rules, later phases introduce more sophisticated AI habit analysis or predictive insights, always respecting the expert configuration.
+9.  **Feedback Loop (Client & Expert):** Features for both the client (dad) to provide feedback on the AI's usefulness/accuracy, and the expert (father) to provide feedback on the AI's adherence to their configuration and the quality of client summaries. 
