@@ -1,9 +1,0 @@
-Using the persona exemplar (), 
-
-Can you please read this persona file: /Users/willknowles/.wfkAi/trevipay/2025/05/07/persona/cognitive-psychologist.md, and then check it against this persona exemplar: /Users/willknowles/.wfkAi/shared/exemplars/persona.exemplar.md. Please determine if the persona conforms to our standard. If it does not, please list out what needs to be refactored to better conform to our established standard.
-
-- /Users/willknowles/.wfkAi/shared/persona/ethicist-epistemologist.persona.md
-- /Users/willknowles/.wfkAi/shared/persona/systems-scientist.persona.md
-
-REMOVAL OF PERSONA REVIEW LIMITATION
-Could you please take this persona definition: /Users/willknowles/.wfkAi/shared/persona/systems-scientist.persona.md, and then compare it to this persona definition: /Users/willknowles/.wfkAi/shared/persona/aws-pragmatic-engineer.persona.md. The first persona seems to be geared toward reviewing persona. Could you review our persona exemplar: /Users/willknowles/.wfkAi/shared/exemplars/persona.exemplar.md, and then determine what our first persona needs to remove references that limit it to reviewing solely persona and make them more capable of providing more generalized analysis on the subject matter.

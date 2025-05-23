@@ -1,4 +1,0 @@
-# Requirements for Execution Environment
-PyYAML
-Flask
-# Add other dependencies if needed (e.g., pika-client for RabbitMQ, Flask/FastAPI for API) 

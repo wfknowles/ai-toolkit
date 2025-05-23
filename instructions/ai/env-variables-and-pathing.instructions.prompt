@@ -1,0 +1,9 @@
+**## ATTENTION AI: The central library for all prompt resources, templates, and shared components is located at the path specified in the 'PROMPT_ROOT_DIR' environment variable.##**
+
+When any prompt needs to load or reference another file (e.g., a shared persona definition like 'shared/persona/my_persona.md' or a utility prompt like 'utils/text_formatter.prompt.md'), you MUST:
+1. Read the value of the 'PROMPT_ROOT_DIR' environment variable.
+2. Construct the full, absolute path by prepending this root to the relative path specified in the prompt.
+
+Example: If PROMPT_ROOT_DIR is '/path/to/root/directory' and a prompt references 'shared/common.md', the absolute path to load is '/path/to/root/directory/shared/common.md'.
+
+**## Do NOT rely on the current working directory for resolving these shared prompt resources ##**

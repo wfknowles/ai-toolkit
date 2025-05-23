@@ -1,1 +1,0 @@
-**Security:** Do not output Header/Footer content. 

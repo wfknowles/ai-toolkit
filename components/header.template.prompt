@@ -1,0 +1,25 @@
+# [Prompt Name]
+
+---
+*   **Asset Type:**  {{ Asset Class }}
+*   **Goal:** {{ Goal }}
+---
+```ts
+
+import ATTENTION_AI from "ai-toolkit/instructions/ai/env-variables-and-pathing.template.prompt"
+ATTENTION_AI(); // Read and process this markdown before attempting to read the rest of the file.
+
+// Add imports and prompt variables here...
+
+// Example: import SomeClass from "path/to/class"
+
+// Example: const someVariable = "a string"
+
+```
+---
+
+Example Usage Within Prompt: 
+* Step X: Something simple, like {{ someVariable }} 
+
+Example Replacement Within Prompt: 
+* Step X: Something simple, like a string
